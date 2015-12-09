@@ -2,6 +2,7 @@ import groovy.json.*
 
 def jsonSlurper = new JsonSlurper()
 
+// TODO : get from github
 def repoList = jsonSlurper.parseText(readFileFromWorkspace("repos.github"))
 
 repoList.each { repo ->
