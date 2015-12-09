@@ -3,7 +3,7 @@ freeStyleJob('_start-them-all') {
     steps {
         gradle('clean build')
     }
-    publishers {
+    steps {
       systemGroovyCommand """
 startServer = "admin"
 startNote   = "bulk start"
