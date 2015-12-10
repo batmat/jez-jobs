@@ -26,7 +26,7 @@ repoList.each { repo ->
 node {
    stage 'Checkout'
 
-   git url: "$gitUrl"mak
+   git url: "$gitUrl"
 
    def mvnHome = tool 'maven-3'
 
