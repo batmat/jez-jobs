@@ -3,7 +3,7 @@ import groovy.json.*
 def jsonSlurper = new JsonSlurper()
 
 // TODO : get from github
-def repoList = jsonSlurper.parseText(readFileFromWorkspace("resources/repos.github"))
+def repoList = jsonSlurper.parseText(readFileFromWorkspace("resources/repos.json"))
 
 repoList.each { repo ->
   def jobName = repo.name
