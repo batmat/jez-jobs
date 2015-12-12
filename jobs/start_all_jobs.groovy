@@ -1,9 +1,6 @@
 freeStyleJob('_start-them-all') {
     logRotator(-1, 10)
     steps {
-        gradle('clean build')
-    }
-    steps {
       systemGroovyCommand """
 startServer = "admin"
 startNote   = "bulk start"
