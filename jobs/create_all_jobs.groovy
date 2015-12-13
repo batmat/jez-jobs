@@ -11,15 +11,6 @@ repoList.each { repo ->
   println "$jobName => $gitUrl"
 
   workflowJob(jobName) {
-        scm {
-            git {
-              remote {
-                  name('origin')
-                  url(gitUrl)
-              }
-              createTag(false)
-            }
-        }
         definition {
             cps {
               script """
