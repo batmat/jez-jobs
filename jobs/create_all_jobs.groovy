@@ -26,6 +26,8 @@ node {
    sh "\${mvnHome}/bin/mvn --batch-mode -Dsurefire.useFile=false clean verify"
 }
               """
+
+              sandbox()
             }
         }
     }
