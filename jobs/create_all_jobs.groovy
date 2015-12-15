@@ -10,25 +10,30 @@ repoList.each { repo ->
   def gitUrl = repo.clone_url
   println "$jobName => $gitUrl"
 
-  workflowJob(jobName) {
-        definition {
-            cps {
-              script """
-node('demo') {
-   stage 'Checkout'
+  if(jobName.endsWith("-plugin")) {
 
-   git url: "$gitUrl"
 
-   def mvnHome = tool 'maven-3'
+        workflowJob(jobName) {
+              definition {
+                  cps {
+                    script """
+      node('demo') {
+         stage 'Checkout'
 
-   stage 'Build'
+         git url: "$gitUrl"
 
-   sh "\${mvnHome}/bin/mvn --batch-mode -Dsurefire.useFile=false clean verify"
-}
-              """
+         def mvnHome = tool 'maven-3'
 
-              sandbox()
-            }
-        }
+         stage 'Build'
+
+         sh "\${mvnHome}/bin/mvn --batch-mode -Dsurefire.useFile=false clean verify"
+      }
+                    """
+
+                    sandbox()
+                  }
+              }
+          }
+
     }
 }
