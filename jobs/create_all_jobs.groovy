@@ -14,7 +14,7 @@ repoList.each { repo ->
         definition {
             cps {
               script """
-node {
+node('demo') {
    stage 'Checkout'
 
    git url: "$gitUrl"
